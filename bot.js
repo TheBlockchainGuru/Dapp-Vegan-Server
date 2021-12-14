@@ -10,40 +10,6 @@ app.use(cors());
 app.use(bodyParser.json())
 const httpServer = http.createServer(app);
 
-const run = async () => {
-         try {
-            const mailTransporter = nodemailer.createTransport({
-                host: 'smtp.gmail.com',
-                port: 587,
-                auth: {
-                  user: 'Dev@veganrobscoin.com',
-                  pass: 'Freelancer313#!!',
-                },
-            });
-
-            let mailDetails = {
-                from: 'Dev@veganrobscoin.com',
-                to: 'veganrobcointest@outlook.com',//harry@veganrobscoin.com
-                subject: 'Vegan Rob Box Request',
-                text: "start"
-            };
-
-            mailTransporter.sendMail(mailDetails, function(err, data) {
-                if(err) {
-                    console.log('Error Occurs');
-                } else {
-                    this.setState({
-                        emailString : ''
-                    })
-                    alert("email is sented successfully")
-                }
-            });
-        } catch (error) {
-          console.log(error)
-        }
-}
-run()
-
 app.post('/todo', function(request, response){
     let myJson = request.body;  
     console.log(myJson)
