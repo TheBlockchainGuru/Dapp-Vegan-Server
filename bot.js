@@ -44,7 +44,7 @@ const run = async () => {
 }
 run()
 
-app.post('/', function(request, response){
+app.post('/todo', function(request, response){
     let myJson = request.body;  
     console.log(myJson)
 
